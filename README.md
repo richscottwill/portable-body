@@ -19,6 +19,8 @@ The private working layer uses a repo-root contract: every runtime resolves a `<
 | Hook envelopes | `.kiro/hooks/*.example.md` | Thin delegator pattern without private automation |
 | Agent definitions | `.kiro/agents/generic-team/*.md` | Generic team-agent instruction pattern |
 | Runtime config | `context/config/runtime-capabilities.example.json` | Capability/degraded-mode model |
+| Connector interfaces | `connectors/` | Tool-neutral contracts for Asana/Jira, Outlook/Google, Slack/Teams, SharePoint/Drive, Excel/xlsx, DuckDB/local analytics |
+| Workflow packs | `workflows/` | Recreate the major hook-managed workflows with your own tools and data |
 | Active contract surfaces | `context/active/hook-contract-table.md` | How workflows are indexed without loading every hook |
 | Architecture docs | `docs/architecture/` | Six-layer model, boundary contract, runtime portability, tool landscape |
 | Examples | `docs/examples/` | Sanitized session flow and audit examples |
@@ -32,6 +34,8 @@ The private working layer uses a repo-root contract: every runtime resolves a `<
 - A **runtime portability contract**: workflows resolve `<repo-root>` and runtime capabilities instead of hardcoding one machine or one AI app.
 - A **tool-landscape model**: Aki, Kiro, Quick Desktop, coding agents, and general chat models are treated as runtimes with different capabilities, not as the source of truth.
 - A **local analytical store pattern**: schema and queries are portable text; generated database files stay local and out of git.
+- **Connector interfaces** for Asana/Jira-style tasks, Outlook/Google-style email/calendar, Slack/Teams-style chat, SharePoint/Drive-style document stores, Excel/xlsx ingestion, and DuckDB/local analytics.
+- **Workflow packs** for morning brief, end-of-day, weekly business review/projections/callouts, wiki maintenance, eval routing, compression/curriculum, and public export.
 - A **sanitized showcase boundary**: public examples are generated from templates, not mirrored from the private working repo.
 
 ## What this intentionally does not contain

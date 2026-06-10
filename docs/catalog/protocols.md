@@ -9,7 +9,7 @@ Generated from protocol filenames and headings only. Private bodies are not copi
 | context/protocols/am-backend-parallel.md | AM-Backend Protocol — Parallel Architecture (v2, current) | portable operating contract / workflow rule |
 | context/protocols/am-frontend.md | AM-Frontend Protocol — Brief + Triage + Command Center | portable operating contract / workflow rule |
 | context/protocols/am-triage.md | AM-Triage Protocol — Curate + Draft | portable operating contract / workflow rule |
-| context/protocols/Task System-duckdb-sync.md | Task System → DuckDB Sync Protocol | portable operating contract / workflow rule |
+| context/protocols/asana-duckdb-sync.md | Asana → DuckDB Sync Protocol | portable operating contract / workflow rule |
 | context/protocols/b1-task-comments-sync.md | B1 Task Comments Sync — Orchestrator Contract | portable operating contract / workflow rule |
 | context/protocols/body-system-archeology.md | Body System Archeology Protocol | portable operating contract / workflow rule |
 | context/protocols/brief-shape-test.md | Brief Shape Test — V1/V2/V3 | portable operating contract / workflow rule |
@@ -45,8 +45,8 @@ Generated from protocol filenames and headings only. Private bodies are not copi
 | context/protocols/seasonality-calendar.md | Seasonality Calendar — PS Markets (2026) | portable operating contract / workflow rule |
 | context/protocols/self-heal-hooks.md | Self-Heal Hooks — Pattern + Targets | portable operating contract / workflow rule |
 | context/protocols/sequester-bad-workloads.md | Sequester Bad Workloads | portable operating contract / workflow rule |
-| context/protocols/Document Store-durability-sync.md | Portability contract | portable operating contract / workflow rule |
-| context/protocols/Document Store-publish.md | Document Store Publish Protocol | portable operating contract / workflow rule |
+| context/protocols/sharepoint-durability-sync.md | Portability contract | portable operating contract / workflow rule |
+| context/protocols/sharepoint-publish.md | SharePoint Publish Protocol | portable operating contract / workflow rule |
 | context/protocols/signal-intelligence.md | Signal Intelligence Protocol | portable operating contract / workflow rule |
 | context/protocols/signal-to-task-pipeline.md | Signal-to-Task Pipeline | portable operating contract / workflow rule |
 | context/protocols/skill-decay-protocol.md | Skill Decay Protocol | portable operating contract / workflow rule |
