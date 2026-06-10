@@ -1,12 +1,78 @@
 {
-  "runtime": "example-local",
-  "capabilities": {
-    "shell": true,
-    "git": true,
-    "python": true,
-    "filesystem_write": true,
-    "agent_dispatch": false,
-    "external_publish": false
-  },
-  "degraded_mode": "Run file-only phases and surface skipped integrations."
+  "schema_version": 1,
+  "purpose": "Example capability registry for a portable AI operating layer. Values are illustrative, not product guarantees.",
+  "runtimes": {
+    "aki-local": {
+      "shell": true,
+      "git": true,
+      "python": true,
+      "filesystem_read": true,
+      "filesystem_write": true,
+      "hooks": "runtime-specific",
+      "agent_dispatch": true,
+      "browser": "partial",
+      "external_connectors": "varies",
+      "degraded_mode": "Run local file workflows; skip unavailable connectors."
+    },
+    "kiro-server": {
+      "shell": true,
+      "git": true,
+      "python": true,
+      "filesystem_read": true,
+      "filesystem_write": true,
+      "hooks": true,
+      "agent_dispatch": "kiro-agent-dispatch",
+      "browser": "limited",
+      "external_connectors": "runtime-specific",
+      "degraded_mode": "Run server automation; mark local-only UI steps unavailable."
+    },
+    "kiro-local": {
+      "shell": true,
+      "git": true,
+      "python": true,
+      "filesystem_read": true,
+      "filesystem_write": true,
+      "hooks": true,
+      "agent_dispatch": "kiro-agent-dispatch",
+      "browser": true,
+      "external_connectors": "varies",
+      "degraded_mode": "Run local hooks; skip server-only connectors."
+    },
+    "quick-desktop-local": {
+      "shell": "varies",
+      "git": "varies/no",
+      "python": "varies",
+      "filesystem_read": "app-scoped",
+      "filesystem_write": "app-scoped",
+      "hooks": "app-specific",
+      "agent_dispatch": "app-specific",
+      "browser": true,
+      "external_connectors": "public-app-features",
+      "degraded_mode": "Use as local/user-facing runtime; produce manual instructions when shell/git are unavailable."
+    },
+    "coding-agent": {
+      "shell": true,
+      "git": true,
+      "python": true,
+      "filesystem_read": true,
+      "filesystem_write": true,
+      "hooks": false,
+      "agent_dispatch": "coding-focused",
+      "browser": "limited",
+      "external_connectors": "tooling-specific",
+      "degraded_mode": "Implement and test code; leave operational scheduling to another runtime."
+    },
+    "general-chat-model": {
+      "shell": false,
+      "git": false,
+      "python": false,
+      "filesystem_read": "provided-files-only",
+      "filesystem_write": false,
+      "hooks": false,
+      "agent_dispatch": false,
+      "browser": false,
+      "external_connectors": false,
+      "degraded_mode": "Reason over supplied files and produce a runbook or patch plan."
+    }
+  }
 }

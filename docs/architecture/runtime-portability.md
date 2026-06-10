@@ -26,3 +26,18 @@ SCRATCH_DIR="${PORTABLE_TMP:-$REPO_ROOT/context/active/scratch}"
 | Git unavailable | skip sync and log manual action |
 | External publish unavailable | write local artifact and mark unpublished |
 | Agent dispatch unavailable | run orchestrator-only stages |
+
+
+## Tool planning lens
+
+When evaluating a new tool, ask:
+
+1. Can it read the repo structure?
+2. Can it resolve `<repo-root>`?
+3. Does it have shell/git/filesystem access?
+4. Does it support hooks or only interactive runs?
+5. Can it dispatch subagents or only run one model?
+6. Which connectors are available?
+7. What is the safe degraded mode?
+
+This lets the operating layer absorb tool churn without rewriting every workflow.
