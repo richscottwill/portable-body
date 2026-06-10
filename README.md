@@ -31,6 +31,7 @@ The private working layer uses a repo-root contract: every runtime resolves a `<
 - A **thin-hook pattern**: hooks stay small and delegate durable behavior to markdown protocols.
 - A **runtime portability contract**: workflows resolve `<repo-root>` and runtime capabilities instead of hardcoding one machine or one AI app.
 - A **tool-landscape model**: Aki, Kiro, Quick Desktop, coding agents, and general chat models are treated as runtimes with different capabilities, not as the source of truth.
+- A **local analytical store pattern**: schema and queries are portable text; generated database files stay local and out of git.
 - A **sanitized showcase boundary**: public examples are generated from templates, not mirrored from the private working repo.
 
 ## What this intentionally does not contain

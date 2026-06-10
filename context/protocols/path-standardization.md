@@ -2,6 +2,8 @@
 
 ## Contract
 
+- Local analytical stores should resolve through an environment override when set, otherwise a repo-local generated path such as `<repo-root>/data/duckdb/demo.duckdb`. Do not commit generated `.duckdb` files.
+
 1. `AGENT_BRIDGE_ROOT` or equivalent is the canonical repo-root override.
 2. Prose uses `<repo-root>/...` notation.
 3. Scripts resolve the concrete path before executing.

@@ -21,6 +21,7 @@ Each workflow should define:
 - optional capabilities
 - degraded behavior
 - output location
+- local analytical store access, when a workflow needs structured/tabular memory
 - human escalation path
 
 Example:

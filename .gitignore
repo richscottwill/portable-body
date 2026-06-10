@@ -1,0 +1,9 @@
+# Generated local analytical stores
+data/duckdb/*.duckdb
+data/duckdb/*.wal
+data/duckdb/*.tmp
+
+# Local runtime noise
+.DS_Store
+__pycache__/
+*.pyc
