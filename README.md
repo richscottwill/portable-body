@@ -1,61 +1,110 @@
-# Portable Body — Sanitized Agent-Bridge Shape
+# Portable Body — A Public Reference Implementation for a Portable AI Operating Layer
 
-This repository is a public, sanitized example of a portable AI operating system. It intentionally mirrors the **directory shape and naming conventions** of a private working layer while replacing private content with fictional templates and architecture notes.
+Portable Body is a sanitized, public reference implementation of a private AI operating system. It mirrors the working system's **shape, operating patterns, and workflow logic** without publishing private company, customer, project, people, metrics, credentials, or IDs.
 
-The thesis is simple: **AI tools change faster than operating systems should.** A durable operating layer should survive movement across Aki, Kiro, Quick Desktop, coding agents, general chat models, and whatever comes next.
+The thesis is simple: **AI tools change faster than operating systems should.** The durable layer should be repo-native: markdown memory, protocols, hooks, agents, connector contracts, local analytics, workflow state, and export boundaries that can move across Aki, Kiro, Quick Desktop, coding agents, general chat models, and whatever comes next.
 
-## Why the structure looks like this
+This is more than a showcase. The goal is that someone outside the original environment can use this repo to recreate their own private working layer with their own tools, data, agents, and workflows.
 
-The private working layer uses a repo-root contract: every runtime resolves a `<repo-root>` and then reads stable paths such as `context/body/`, `context/protocols/`, `.kiro/hooks/`, `.kiro/agents/`, and `tools/`. This public repo keeps that shape so someone can understand the system without seeing private work data.
+## The system map
 
-## Map
+Start with the visual map in `docs/system-map.md`, then use `docs/recreate-agent-bridge-system.md` and `docs/replication-checklist.md` to recreate the system on another machine.
 
-| Private working-layer concept | Public sanitized path | What to inspect |
+
+| Layer | What it does | Where to look |
 |---|---|---|
-| Workspace bootstrap | `AGENTS.md` | How a fresh AI session or teammate orients itself |
-| Body-system navigation | `context/body/body.md` | Which organ to load for which task |
-| Operating organs | `context/body/*.md` | Templates for principles, memory, current work, tasks, observation |
-| Workflow contracts | `context/protocols/*.md` | Portable protocols that hooks/agents execute |
-| Hook envelopes | `.kiro/hooks/*.example.md` | Thin delegator pattern without private automation |
-| Agent definitions | `.kiro/agents/generic-team/*.md` | Generic team-agent instruction pattern |
-| Runtime config | `context/config/runtime-capabilities.example.json` | Capability/degraded-mode model |
-| Connector interfaces | `connectors/` | Tool-neutral contracts for Asana/Jira, Outlook/Google, Slack/Teams, SharePoint/Drive, Excel/xlsx, DuckDB/local analytics |
-| Workflow packs | `workflows/` | Recreate the major hook-managed workflows with your own tools and data |
-| Active contract surfaces | `context/active/hook-contract-table.md` | How workflows are indexed without loading every hook |
-| Architecture docs | `docs/architecture/` | Six-layer model, boundary contract, runtime portability, tool landscape |
-| Examples | `docs/examples/` | Sanitized session flow and audit examples |
-| Export tooling docs | `tools/portable-body-export/` | How the public layer is generated safely |
+| 1. Bootstrap | Tells a fresh AI/runtime how to orient in the repo | `AGENTS.md`, `docs/START-HERE.md` |
+| 2. Body / memory | Portable context surfaces: principles, current state, memory, tasks, observation | `context/body/` |
+| 3. Protocols | Durable workflow contracts, failure rules, evaluation rules, and decision rules | `context/protocols/` |
+| 4. Hooks / triggers | Thin runtime entrypoints that delegate to protocols | `.kiro/hooks/`, `docs/catalog/hooks.md` |
+| 5. Agents / teams | Role-scoped workers and review lenses | `.kiro/agents/`, `docs/catalog/agents.md` |
+| 6. Connectors | Tool interfaces for tasks, chat, calendar, docs, spreadsheets, analytics, and publishing | `connectors/` |
+| 7. Local analytics | Text-defined schema/query layer; generated database files stay local | `data/duckdb/` |
+| 8. Workflow packs | End-to-end reusable operating workflows | `workflows/` |
+| 9. Public/private boundary | How to publish patterns without leaking private state | `context/protocols/public-showcase-layer.md`, `SANITIZE.md` |
 
-## What this demonstrates
+## What we were able to build
 
-- A **body-system memory model**: small markdown organs that let an AI recover identity, priorities, context, operating rules, and active work.
-- A **protocol layer**: reusable operating contracts that agents can execute across tools and runtimes.
-- A **thin-hook pattern**: hooks stay small and delegate durable behavior to markdown protocols.
-- A **runtime portability contract**: workflows resolve `<repo-root>` and runtime capabilities instead of hardcoding one machine or one AI app.
-- A **tool-landscape model**: Aki, Kiro, Quick Desktop, coding agents, and general chat models are treated as runtimes with different capabilities, not as the source of truth.
-- A **local analytical store pattern**: schema and queries are portable text; generated database files stay local and out of git.
-- **Connector interfaces** for Asana/Jira-style tasks, Outlook/Google-style email/calendar, Slack/Teams-style chat, SharePoint/Drive-style document stores, Excel/xlsx ingestion, and DuckDB/local analytics.
+This repo captures the reusable parts of a larger private system:
+
+- **A repo-root operating contract**: every runtime resolves `<repo-root>` and avoids machine-specific paths.
+- **A body-system memory model**: markdown organs split durable context into navigable, reviewable surfaces.
+- **A protocol layer**: recurring judgment becomes explicit reusable operating contracts.
+- **Thin hook orchestration**: hooks stay small; durable logic lives in markdown protocols.
+- **Workflow-state discipline**: workflows record status, phases, runtime, degraded mode, and audit outputs.
+- **Connector interfaces**: Asana/Jira-style tasks, Outlook/Google-style email/calendar, Slack/Teams-style chat, SharePoint/Drive-style document stores, Excel/xlsx ingestion, DuckDB/SQLite local analytics, and publishing surfaces are modeled as replaceable connectors.
+- **A local analytics pattern**: schema, seed data, and queries live in git; generated `.duckdb` files stay local and ignored.
 - **Workflow packs** for morning brief, end-of-day, weekly business review/projections/callouts, wiki maintenance, eval routing, compression/curriculum, and public export.
-- A **sanitized showcase boundary**: public examples are generated from templates, not mirrored from the private working repo.
+- **Agent team patterns**: researcher/writer/reviewer roles, wiki-team process, eval-team concepts, and compression/curation agents.
+- **Evaluation before mutation**: changes can be scored, reviewed, kept, or reverted instead of blindly accepted.
+- **A public export boundary**: templates and generated catalogs let the architecture be shared without exposing private operating data.
+
+## The problems this system is working through
+
+This project exists because several problems show up once AI work becomes daily infrastructure rather than one-off prompting:
+
+1. **Tool churn** — Aki, Kiro, Quick Desktop, coding agents, chat models, and future tools have different capabilities. The operating layer should survive them.
+2. **Context sprawl** — memory, tasks, relationship context, strategy, logs, and workflows become too large for one prompt or one app.
+3. **Runtime coupling** — hardcoded home paths, temp directories, shell assumptions, connector availability, and app-specific hooks break portability.
+4. **Invisible workflow failures** — a hook that fails silently can be worse than no automation. Workflows need status, failure logs, and degraded modes.
+5. **Unsafe publication boundaries** — the private working layer contains real data; public examples must preserve structure and reasoning without copying private content.
+6. **Data/prose mismatch** — some memory belongs in markdown; some belongs in a local analytical store; the system needs both.
+7. **Quality control** — generated work needs reviewers, claim validation, eval routing, and keep/revert gates.
+8. **Recoverability** — a fresh runtime should be able to reconstruct the operating model from files, not hidden app state.
+
+## Replicate it on another machine
+
+This repo is designed to be opened by Codex, Claude Code, Antigravity 2, Aki, Kiro, Quick Desktop, or a general coding agent on a fresh machine. The replication path is:
+
+1. Read `AGENTS.md` so the AI runtime understands the workspace contract.
+2. Read `docs/system-map.md` for the visual architecture.
+3. Read `docs/recreate-agent-bridge-system.md` to create a private production instance from this public reference.
+4. Use `docs/replication-checklist.md` to verify the new machine/runtime can read, edit, run, degrade, and publish safely.
+5. Fill `context/body/`, `context/config/`, `connectors/`, `data/duckdb/`, and `workflows/` with your own private data and tool choices.
+
+The thing to replicate is not merely this public repo. It is the **operating pattern used by the private working layer**: repo-root paths, body memory, protocols, hooks, agents, connector interfaces, local analytics, workflow state, audits, and public/private export boundaries.
+
+## Where the most interesting workflows live
+
+| Workflow | What it demonstrates | Public path |
+|---|---|---|
+| Morning brief | multi-source ingest, degraded mode, task/calendar/chat connectors | `workflows/morning-brief/` |
+| End-of-day | daily reconciliation, meeting/task routing, status outputs | `workflows/end-of-day/` |
+| Weekly business review | Excel/xlsx ingest, forecast refresh, projection scoring, callout writing, dashboard refresh | `workflows/weekly-business-review/` |
+| Wiki maintenance | researcher → writer → critic → librarian → concierge pattern | `workflows/wiki-maintenance/` |
+| Eval routing | independent evaluators, review lenses, keep/revert decisions | `workflows/eval-routing/` |
+| Compression/curriculum | context-size management via experiment loops and evaluations | `workflows/karpathy-compression/` |
+| Public export | how private operating logic becomes a sanitized public reference | `workflows/public-export/` |
+
+## How to read this repo
+
+Fast path:
+
+1. `AGENTS.md` — bootstrap contract.
+2. `docs/START-HERE.md` — tour through the repo.
+3. `docs/system-map.md` — visual map of runtimes, repo layer, connectors, workflows, analytics, and public/private boundary.
+4. `docs/recreate-agent-bridge-system.md` — detailed guide for reproducing the private working-layer pattern on another machine.
+5. `docs/replication-checklist.md` — validation checklist for Codex, Claude Code, Antigravity 2, Aki, Kiro, Quick Desktop, or another runtime.
+6. `docs/architecture/tool-landscape.md` — why this must be portable across tools.
+7. `context/body/body.md` — navigation map for the body system.
+8. `context/protocols/path-standardization.md` — the path portability contract.
+9. `workflows/weekly-business-review/README.md` — example of a data + narrative workflow.
+10. `workflows/karpathy-compression/README.md` — example of eval-driven context evolution.
+11. `connectors/README.md` — how tool integrations are abstracted.
+
+Deeper path:
+
+- `docs/catalog/hooks.md` — hook/workflow inventory.
+- `docs/catalog/protocols.md` — protocol inventory.
+- `docs/catalog/agents.md` — agent/team inventory.
+- `data/duckdb/README.md` — local analytics pattern.
+- `context/active/hook-contract-table.md` — how active workflows are indexed.
 
 ## What this intentionally does not contain
 
-- Real company, customer, project, organization structure, private workplace data, or performance data.
-- Real Slack/Asana/SharePoint IDs.
-- Real meeting notes, relationship notes, strategy docs, dashboards, or databases.
-- Credentials, MCP config, or operational secrets.
+- Real company, customer, project, organization structure, private workplace data, or real performance data.
+- Real Slack/Asana/SharePoint IDs, document URLs, calendar IDs, or task IDs.
+- Real meeting notes, relationship notes, career material, internal strategy, credentials, or operational secrets.
 - The private working repo history.
 
-## Start here
-
-1. Read `AGENTS.md`.
-2. Read `context/body/body.md`.
-3. Read `docs/START-HERE.md`.
-4. Read `docs/architecture/tool-landscape.md`.
-5. Read `docs/architecture/showcase-map.md`.
-6. Inspect `context/protocols/path-standardization.md` and `context/protocols/workflow-state.md`.
-7. Inspect `.kiro/hooks/thin-hook.example.md`.
-
-## Design principle
-
-The goal is not to publish someone's life or company context. The goal is to publish a **repeatable structure** that another person can adapt safely.
+The goal is not to publish someone's private assistant state. The goal is to publish a **repeatable operating structure** that another person or team can adapt safely.

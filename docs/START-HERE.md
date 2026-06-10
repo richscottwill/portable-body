@@ -31,3 +31,15 @@ Copy the structure, not the fictional example content:
 - `.kiro/hooks/` or equivalent for thin automation envelopes.
 - `context/config/runtime-capabilities.example.json` for runtime planning.
 - `tools/portable-body-export/` pattern for public/export safety.
+
+
+## Replication path
+
+If your goal is to recreate the private working-layer pattern on another machine, read these in order:
+
+1. `docs/system-map.md` — visual map of the operating layer.
+2. `docs/recreate-agent-bridge-system.md` — step-by-step reproduction guide.
+3. `docs/replication-checklist.md` — machine/runtime validation checklist.
+4. Directory README files under `.kiro/`, `context/`, `docs/`, `workflows/`, `connectors/`, and `data/` — deeper maps for each subsystem.
+
+A new runtime should be able to read those files and explain how it would run or degrade each workflow.
