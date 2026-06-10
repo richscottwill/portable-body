@@ -1,6 +1,26 @@
-# Portable Body — Sanitized AI Operating System Showcase
+# Portable Body — Sanitized Agent-Bridge Shape
 
-This repository is a public, sanitized example of a portable AI operating system. It shows the architecture patterns without exposing the private working system, real workplace data, or personal context.
+This repository is a public, sanitized example of a portable AI operating system. It intentionally mirrors the **directory shape and naming conventions** of a private working layer while replacing private content with fictional templates and architecture notes.
+
+## Why the structure looks like this
+
+The private working layer uses a repo-root contract: every runtime resolves a `<repo-root>` and then reads stable paths such as `context/body/`, `context/protocols/`, `.kiro/hooks/`, `.kiro/agents/`, and `tools/`. This public repo keeps that shape so someone can understand the system without seeing private work data.
+
+## Map
+
+| Private working-layer concept | Public sanitized path | What to inspect |
+|---|---|---|
+| Workspace bootstrap | `AGENTS.md` | How a fresh AI session or teammate orients itself |
+| Body-system navigation | `context/body/body.md` | Which organ to load for which task |
+| Operating organs | `context/body/*.md` | Templates for principles, memory, current work, tasks, observation |
+| Workflow contracts | `context/protocols/*.md` | Portable protocols that hooks/agents execute |
+| Hook envelopes | `.kiro/hooks/*.example.md` | Thin delegator pattern without private automation |
+| Agent definitions | `.kiro/agents/generic-team/*.md` | Generic team-agent instruction pattern |
+| Runtime config | `context/config/runtime-capabilities.example.json` | Capability/degraded-mode model |
+| Active contract surfaces | `context/active/hook-contract-table.md` | How workflows are indexed without loading every hook |
+| Architecture docs | `docs/architecture/` | Six-layer model, boundary contract, runtime portability |
+| Examples | `docs/examples/` | Sanitized session flow and audit examples |
+| Export tooling docs | `tools/portable-body-export/` | How the public layer is generated safely |
 
 ## What this demonstrates
 
@@ -18,23 +38,13 @@ This repository is a public, sanitized example of a portable AI operating system
 - Credentials, MCP config, or operational secrets.
 - The private working repo history.
 
-## Three-layer model
-
-| Layer | Purpose | Visibility |
-|---|---|---|
-| Private working layer | Real hooks, protocols, data, docs, and active work | Private only |
-| Public showcase layer | Sanitized architecture and reusable patterns | Safe to share |
-| Durability/DR layer | Private backups/snapshots for recovery | Private only |
-
-See `architecture/layer-boundary-contract.md` for the full boundary.
-
 ## Start here
 
-1. Read `architecture/six-layer-portable-ai-os.md`.
-2. Read `architecture/showcase-map.md` for a guided tour.
-3. Inspect the body templates under `body/`.
-4. Inspect protocol examples under `protocols/`.
-5. Inspect hook examples under `hooks/`.
+1. Read `AGENTS.md`.
+2. Read `context/body/body.md`.
+3. Read `docs/architecture/showcase-map.md`.
+4. Inspect `context/protocols/path-standardization.md` and `context/protocols/workflow-state.md`.
+5. Inspect `.kiro/hooks/thin-hook.example.md`.
 
 ## Design principle
 

@@ -1,0 +1,12 @@
+{
+  "runtime": "example-local",
+  "capabilities": {
+    "shell": true,
+    "git": true,
+    "python": true,
+    "filesystem_write": true,
+    "agent_dispatch": false,
+    "external_publish": false
+  },
+  "degraded_mode": "Run file-only phases and surface skipped integrations."
+}
