@@ -1,10 +1,17 @@
 # Path Standardization Template
 
-Use `<repo-root>` in shared documentation. Use `AGENT_BRIDGE_ROOT` in executable workflows.
-
 ## Contract
 
-1. If `AGENT_BRIDGE_ROOT` is set, use it.
-2. Otherwise discover the repo root from the current working directory.
-3. Never assume a fixed home directory.
-4. Runtime-specific capability checks should fail cleanly.
+1. `AGENT_BRIDGE_ROOT` or equivalent is the canonical repo-root override.
+2. Prose uses `<repo-root>/...` notation.
+3. Scripts resolve the concrete path before executing.
+4. Temporary workflow files use repo-local scratch unless an explicit temp env var is set.
+5. Never hardcode a personal home directory in portable instructions.
+
+## Example
+
+```bash
+export AGENT_BRIDGE_ROOT="${AGENT_BRIDGE_ROOT:-$(python3 tools/scripts/path_resolver.py root)}"
+REPO_ROOT="$AGENT_BRIDGE_ROOT"
+OUTPUT="$REPO_ROOT/context/active/example-output.md"
+```

@@ -1,15 +1,18 @@
 # Current Template
 
+Purpose: active work state.
+
 ## Active priorities
 
-- `[Priority 1]`
-- `[Priority 2]`
-- `[Priority 3]`
+| Priority | Outcome | Status | Next step |
+|---|---|---|---|
+| `[Project A]` | `[Outcome]` | on track | draft protocol |
+| `[Project B]` | `[Outcome]` | blocked | clarify owner |
 
 ## Open loops
 
-- `[Open loop]` — owner, next action, due date.
+- `[Decision needed]`
+- `[Artifact to ship]`
+- `[Follow-up to schedule]`
 
-## Constraints
-
-- `[Constraint]`
+Public examples must use fictional projects and placeholder metrics.

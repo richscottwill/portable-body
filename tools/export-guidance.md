@@ -1,13 +1,20 @@
 # Export Guidance
 
-Do not copy from a private working repo directly into this public repo.
+Public showcase content should be produced from allowlisted templates.
 
-Recommended process:
+## Export checklist
 
-1. Build an allowlist of public-safe architecture files.
-2. Rewrite content through deterministic sanitization rules.
-3. Run denylist scans.
-4. Manually review the generated output.
-5. Publish only after the scan is clean.
+1. Generate into a staging directory.
+2. Run the leak scanner.
+3. Review changed files manually.
+4. Commit with a clear message.
+5. Push only after the scan and review pass.
 
-A clean export is a product artifact, not a backup.
+## Never export
+
+- private body state
+- relationship notes
+- meeting logs
+- dashboards or databases
+- credential config
+- company-specific agent prompts

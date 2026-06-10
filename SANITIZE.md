@@ -1,37 +1,30 @@
-# Sanitization Contract
+# Sanitization Rules
 
-This repository is safe to show only because it contains templates and fictional examples.
+This repo is public. Treat every export as hostile until scanned.
 
-## Strip completely
+## Strip / replace
 
-- employer, customer, vendor, and competitor names
-- real people names, aliases, levels, locations, and reporting lines
-- task IDs, Slack IDs, calendar IDs, email addresses, URLs, and SharePoint paths
-- project names, launch plans, strategy docs, metrics, forecasts, spend, performance data
-- compensation, promotion, career, and relationship notes
-- meeting transcripts, email text, chat logs, operational changelogs
-- credentials, tokens, MCP config, private binary/tool names
+- Employer names → `[Company]`
+- People names → `[Manager]`, `[Teammate]`, `[Stakeholder]`
+- Team/project names → `[Program]`, `[Project]`, `[Market]`
+- Metrics and financials → `[metric]`, `[amount]`, `[target]`
+- Tool IDs / URLs / GIDs / channel IDs → `[id]`, `[url]`
+- Career, private workplace, performance details → remove entirely
+- Meeting notes and relationship dynamics → remove entirely
 
 ## Keep
 
-- architecture diagrams and explanations
-- generic body-file patterns
-- generic protocol shapes
-- hook delegation pattern
-- decision/review/failure-loop patterns
-- path portability conventions such as `<repo-root>` and `AGENT_BRIDGE_ROOT`
+- Architecture patterns
+- File layout patterns
+- Protocol shapes
+- Thin-hook delegation pattern
+- Runtime/path portability pattern
+- Generic examples using fictional context
 
-## Rewrite pattern
+## Required checks before publish
 
-| Private value | Public replacement |
-|---|---|
-| real person | `[Person A]`, `[Manager]`, `[Stakeholder]` |
-| real company | `[Company]` |
-| real project | `[Project X]` |
-| real metric | `[metric]`, `[redacted number]` |
-| real tool | `[tool]`, `[task system]`, `[calendar system]` |
-| real path | `<repo-root>/...` |
+```bash
+python3 tools/portable-body-export/scan_public_export.py <export-dir>
+```
 
-## Publish gate
-
-Before publishing, run a denylist scan for names, company terms, internal project names, IDs, credentials, and absolute paths. If any hit remains, do not publish.
+A passing scan is necessary but not sufficient. Human review is still required.

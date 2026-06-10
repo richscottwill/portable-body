@@ -1,49 +1,41 @@
-# Portable Body
+# Portable Body — Sanitized AI Operating System Showcase
 
-A sanitized, public example of a portable AI operating-system pattern.
-
-This repository is intentionally **architecture-only**. It shows how to structure a personal/team AI workspace so it can move across tools and runtimes without exposing private work data.
+This repository is a public, sanitized example of a portable AI operating system. It shows the architecture patterns without exposing the private working system, real workplace data, or personal context.
 
 ## What this demonstrates
 
-- A repo-root based working layer instead of machine-specific paths
-- A small set of durable "body" files that hold operating context
-- Thin hooks that delegate to markdown protocols
-- Runtime path contracts such as `<repo-root>` and `AGENT_BRIDGE_ROOT`
-- Review, decision, and failure-log loops that make an agent system auditable
-- Sanitization boundaries between private working state and public examples
+- A **body-system memory model**: small markdown organs that let an AI recover identity, priorities, context, operating rules, and active work.
+- A **protocol layer**: reusable operating contracts that agents can execute across tools and runtimes.
+- A **thin-hook pattern**: hooks stay small and delegate durable behavior to markdown protocols.
+- A **runtime portability contract**: workflows resolve `<repo-root>` and runtime capabilities instead of hardcoding one machine.
+- A **sanitized showcase boundary**: public examples are generated from templates, not mirrored from the private working repo.
 
-## What is not included
+## What this intentionally does not contain
 
-This repo intentionally excludes:
+- Real company, customer, project, organization structure, private workplace data, or performance data.
+- Real Slack/Asana/SharePoint IDs.
+- Real meeting notes, relationship notes, strategy docs, dashboards, or databases.
+- Credentials, MCP config, or operational secrets.
+- The private working repo history.
 
-- real company, customer, teammate, or personal data
-- org charts, compensation, performance, or career material
-- meeting notes, chat logs, email content, task IDs, or calendar IDs
-- private database files, analytics, forecasts, or dashboards
-- credentials, MCP configuration, tokens, or internal tool names
-- real project names, metrics, strategy, or operational changelogs
-
-## Layer model
+## Three-layer model
 
 | Layer | Purpose | Visibility |
 |---|---|---|
-| Private working layer | Real workflows, data, hooks, docs, and operational state | Private only |
-| Sanitized showcase layer | Architecture patterns, templates, and example contracts | Public/shareable |
-| Durability/backup layer | Recovery snapshots and private restore artifacts | Private only |
+| Private working layer | Real hooks, protocols, data, docs, and active work | Private only |
+| Public showcase layer | Sanitized architecture and reusable patterns | Safe to share |
+| Durability/DR layer | Private backups/snapshots for recovery | Private only |
 
-## Repository map
+See `architecture/layer-boundary-contract.md` for the full boundary.
 
-```text
-architecture/   Narrative explanation of the pattern
-body/           Sanitized body-file templates
-protocols/      Portable protocol templates
-hooks/          Thin hook examples without real integrations
-agents/         Generic agent-role templates
-examples/       Fictional end-to-end examples
-tools/          Sanitization/export guidance
-```
+## Start here
 
-## Safe-use principle
+1. Read `architecture/six-layer-portable-ai-os.md`.
+2. Read `architecture/showcase-map.md` for a guided tour.
+3. Inspect the body templates under `body/`.
+4. Inspect protocol examples under `protocols/`.
+5. Inspect hook examples under `hooks/`.
 
-Never mirror a private working repo into this repo. Export only allowlisted architecture patterns, run a leak scan, and review manually before publishing.
+## Design principle
+
+The goal is not to publish someone's life or company context. The goal is to publish a **repeatable structure** that another person can adapt safely.

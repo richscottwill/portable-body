@@ -1,13 +1,22 @@
 # Thin Hook Example
 
-A portable hook should be a small runtime envelope.
+A hook should be a small runtime entrypoint, not the source of truth.
 
-```text
-1. Resolve `<repo-root>`.
-2. Check pause/debounce state.
-3. Read `<repo-root>/protocols/example.md`.
-4. Execute the protocol.
-5. Write run state and failures under `<repo-root>/context/active/`.
+```json
+{
+  "name": "Example Weekly Review",
+  "when": {"type": "userTriggered"},
+  "then": {
+    "type": "askAgent",
+    "prompt": "Resolve <repo-root>, then read and execute <repo-root>/protocols/weekly-review.example.md. If repo root cannot be resolved, stop and ask for configuration."
+  }
+}
 ```
 
-Keep workflow logic in markdown protocols, not escaped JSON strings.
+## Pattern
+
+- preflight paths
+- check pause/debounce state
+- delegate to protocol
+- write a run record
+- degrade visibly on missing capability

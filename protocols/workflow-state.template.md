@@ -1,17 +1,26 @@
 # Workflow State Template
 
-Portable workflows should write structured run records.
+Purpose: make recurring workflows observable and resumable.
+
+## Run record
 
 ```json
 {
-  "workflow": "example",
-  "run_id": "...",
+  "workflow": "example-workflow",
+  "run_id": "2026-01-01T00:00:00Z-example",
   "phase_results": {},
-  "runtime": "...",
-  "started_at": "...",
-  "completed_at": "...",
-  "status": "completed|failed|skipped",
-  "repo_root": "...",
-  "commit": "..."
+  "runtime": "local",
+  "started_at": "2026-01-01T00:00:00Z",
+  "completed_at": null,
+  "status": "running",
+  "skip_reason": null,
+  "repo_root": "<repo-root>",
+  "commit": "<sha>"
 }
 ```
+
+## Rules
+
+- Write state before external side effects.
+- Mark skipped runs explicitly.
+- Preserve partial failures instead of pretending success.

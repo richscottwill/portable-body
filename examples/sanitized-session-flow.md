@@ -1,10 +1,23 @@
 # Sanitized Session Flow
 
-1. User asks for a weekly review.
-2. Hook resolves `<repo-root>`.
-3. Hook reads a protocol template.
-4. Agent reads fictional logs from `examples/`.
-5. Agent writes a sanitized review artifact.
-6. Audit log records the workflow outcome.
+User: "Prepare my weekly review."
 
-No real work data is included in this example.
+Agent flow:
+
+1. Read `body/soul.template.md` for operating principles.
+2. Read `body/current.template.md` for active priorities.
+3. Load `protocols/workflow-state.template.md`.
+4. Resolve `<repo-root>`.
+5. Read fictional logs from `examples/`.
+6. Produce a markdown review with patterns and open decisions.
+7. Write a run record.
+
+Output example:
+
+```text
+Weekly review complete.
+Sources read: 5/5
+Patterns: 2
+Open decisions: 1
+Review: <repo-root>/context/intake/weekly-review.md
+```

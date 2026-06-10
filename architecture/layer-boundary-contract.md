@@ -1,21 +1,31 @@
 # Layer Boundary Contract
 
-## Private working layer
+Portable Body uses three layers.
 
-Contains real operational state and must remain private. It may include private notes, workflow artifacts, task data, analytics, and logs.
+## 1. Private working layer
 
-## Sanitized showcase layer
+The private layer contains real work: active plans, logs, dashboards, source data, relationships, meeting notes, credentials configuration, and live automation.
 
-Contains only patterns that another team can copy safely:
+Never publish it directly.
 
-- templates
-- fictional examples
-- generic protocol contracts
-- architecture narratives
-- public-safe diagrams
+## 2. Public showcase layer
 
-It must never be a blind mirror of the private layer.
+The public layer contains templates and architecture examples. It should teach the pattern without revealing the operator's actual data.
 
-## Durability layer
+Allowed:
+- generic body templates
+- protocol templates
+- hook examples
+- architecture diagrams/narratives
+- fictional walkthroughs
 
-Contains restore snapshots and backups. It may be sensitive and should not be treated as public just because it is portable.
+Forbidden:
+- real people, projects, orgs, IDs, metrics, private URLs, meeting notes, or operational logs
+
+## 3. Private durability layer
+
+The durability layer stores private recovery snapshots. It may be portable across the operator's devices, but it is not public.
+
+## Export rule
+
+Public showcase is generated from an allowlist. It is never a blind mirror of the private working layer.

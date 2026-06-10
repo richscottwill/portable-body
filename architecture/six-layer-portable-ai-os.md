@@ -1,20 +1,24 @@
-# Six-Layer Portable AI Workspace Pattern
+# Six-Layer Portable AI OS
 
-This is a sanitized architecture pattern for an AI-assisted operating system.
+A portable AI operating system separates context, rules, workflows, tools, and publishing boundaries.
 
-## Layers
+| Layer | Purpose | Example in this repo |
+|---|---|---|
+| 1. Identity / voice | Stable operating principles and writing style | `body/soul.template.md` |
+| 2. Memory / context | Current state, relationships, active work | `body/memory.template.md`, `body/current.template.md` |
+| 3. Protocols | Reusable execution rules | `protocols/*.template.md` |
+| 4. Hooks / triggers | Thin entrypoints that invoke protocols | `hooks/*.example.md` |
+| 5. Agents / roles | Specialized workers with scoped instructions | `agents/*.md` |
+| 6. Boundary / publishing | What can leave the private layer | `architecture/layer-boundary-contract.md` |
 
-1. **Identity and principles** — durable preferences, constraints, and operating philosophy.
-2. **Current state** — what matters now, kept short and frequently refreshed.
-3. **Working memory** — relationship/context notes that are private in real deployments and templated here.
-4. **Protocols** — repeatable markdown contracts for workflows.
-5. **Hooks and agents** — thin runtime envelopes that call protocols and specialist roles.
-6. **Audit and learning loops** — decision logs, failure logs, reviews, and portability checks.
+## Why markdown?
 
-## Portability rule
+Markdown is diffable, portable across AI tools, and legible to humans. Machines can still parse frontmatter, headings, tables, and fenced examples.
 
-Shared artifacts should refer to the repository as `<repo-root>`. Executable code should resolve that through `AGENT_BRIDGE_ROOT` or a runtime resolver. Do not bake in one machine's home directory.
+## Why thin hooks?
 
-## Boundary rule
+Hooks are runtime-specific. Protocols are portable. Keep hooks short and push durable logic into protocol files.
 
-The private working layer can contain real context. The showcase layer must contain only templates, fictional examples, and architecture descriptions.
+## Why `<repo-root>`?
+
+Hardcoded machine paths break when moving between local desktop, server, and alternate AI runtimes. Public examples use `<repo-root>` and environment variables instead.

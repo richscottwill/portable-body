@@ -1,16 +1,21 @@
 # Spine Template
 
-The spine is the navigation map for a portable AI workspace.
+Purpose: map where the system lives and how to navigate it.
+
+## Canonical roots
+
+- `<repo-root>/body/` — identity and active context templates.
+- `<repo-root>/protocols/` — reusable operating rules.
+- `<repo-root>/hooks/` — thin trigger examples.
+- `<repo-root>/agents/` — specialist role examples.
 
 ## Load order
 
-1. Read the bootstrap file.
-2. Resolve `<repo-root>`.
-3. Load task-specific protocols only.
-4. Write durable outputs under `<repo-root>/context/`.
+1. Read `soul.template.md` for operating principles.
+2. Read `current.template.md` for active work.
+3. Load only the protocol relevant to the task.
+4. Do not load every file just because it exists.
 
-## Anti-patterns
+## Path rule
 
-- Loading every file by default.
-- Hardcoding one machine's home path.
-- Mixing private working data into public templates.
+Use `<repo-root>` in prose. Resolve it at runtime in scripts.
