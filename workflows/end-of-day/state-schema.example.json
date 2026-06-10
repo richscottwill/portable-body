@@ -1,0 +1,47 @@
+{
+  "workflow": "end-of-day",
+  "run_id": "2026-01-01T09:00:00Z-demo-run",
+  "runtime": "example-runtime",
+  "repo_root": "<repo-root>",
+  "status": "degraded",
+  "started_at": "2026-01-01T09:00:00Z",
+  "completed_at": "2026-01-01T09:04:30Z",
+  "phase_results": [
+    {
+      "phase": "Doctor/preflight",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Task delta sync",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Meeting/action-item extraction",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Decision and follow-up queue",
+      "status": "skipped_optional",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Knowledge/state refresh",
+      "status": "skipped_optional",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    }
+  ],
+  "capabilities": {
+    "missing_optional": [
+      "email_calendar",
+      "chat"
+    ],
+    "missing_required": []
+  },
+  "outputs": [
+    "<repo-root>/context/intake/example-run-report.md"
+  ],
+  "next_action": "Review degraded sections and rerun on a runtime with the optional connectors if needed."
+}

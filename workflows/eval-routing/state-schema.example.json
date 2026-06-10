@@ -1,0 +1,46 @@
+{
+  "workflow": "eval-routing",
+  "run_id": "2026-01-01T09:00:00Z-demo-run",
+  "runtime": "example-runtime",
+  "repo_root": "<repo-root>",
+  "status": "degraded",
+  "started_at": "2026-01-01T09:00:00Z",
+  "completed_at": "2026-01-01T09:04:30Z",
+  "phase_results": [
+    {
+      "phase": "Artifact classification",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Tier selection",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Prompt-file creation",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Blind evaluator dispatch",
+      "status": "skipped_optional",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Score aggregation",
+      "status": "skipped_optional",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    }
+  ],
+  "capabilities": {
+    "missing_optional": [
+      "agent_dispatch"
+    ],
+    "missing_required": []
+  },
+  "outputs": [
+    "<repo-root>/context/intake/example-run-report.md"
+  ],
+  "next_action": "Review degraded sections and rerun on a runtime with the optional connectors if needed."
+}

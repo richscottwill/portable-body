@@ -14,7 +14,7 @@ Public status: sanitized structural export. This preserves workflow mechanics an
 
 ## Sanitized structure
 
-<!-- DOC-0512 | duck_id: protocol-claim-validation -->
+<!-- DOC-XXXX | duck_id: protocol-claim-validation -->
 
 # Claim Validation Protocol
 
@@ -79,9 +79,9 @@ Order matters: retry the source read first, then downgrade the claim, then decid
 
 Read the draft and pull the checkable claims. Extract at the sentence or sub-sentence level — one row per independently checkable proposition.
 
-- "MX registrations were +12% vs ExampleProject in May" → one numeric claim
+- "MarketB registrations were +12% vs ExampleProject in May" → one numeric claim
 - "The May shortfall was primarily driven by CPC inflation after the bid change" → one causal claim
-- "The AU test supports scaling to MX" → one judgment claim tied to evidence
+- "The MarketA test supports scaling to MarketB" → one judgment claim tied to evidence
 
 ### 2. Classify each claim
 
@@ -150,7 +150,7 @@ Causal claims need the strongest scrutiny. Pattern, chronology, or correlation a
 
 ### Judgment claims
 
-- `"The AU result is strong enough to justify an MX pilot"` can be `SUPPORTED` if the evidence and decision rule are explicit.
+- `"The MarketA result is strong enough to justify an MarketB pilot"` can be `SUPPORTED` if the evidence and decision rule are explicit.
 - `"This proves the full roadmap will work"` should not be.
 
 ## Common failure modes

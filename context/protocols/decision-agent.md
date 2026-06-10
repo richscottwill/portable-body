@@ -46,7 +46,7 @@ The decision agent forces every build/system-change proposal through the same ex
 
 Capture the proposal as written before invoking gate 1. This makes gate-shopping (re-framing the proposal mid-run to satisfy a failing gate) auditable.
 
-- Write the proposal in one sentence: subject, verb, object, scope. Example: `Add a new hook that posts daily Slack digest to #ps-strategy`.
+- Write the proposal in one sentence: subject, verb, object, scope. Example: `Add a new hook that posts daily Slack digest to #example-channel`.
 - Append the captured sentence to the decision log row's `proposal` field at the start of the run. If a downstream gate fails and the proposal is reworded, that's a NEW protocol invocation with a new row — not an edit to the locked text.
 - If the proposal is too vague to capture in one sentence, return verdict `INVESTIGATE_FIRST` immediately. Do not run any gates against a moving target.
 
@@ -109,7 +109,7 @@ Default soul.md principle 8 question. Override applies for agentic builds where 
 
 ### 8. What's the success metric and review date?
 
-- **Metric:** measurable, not vibes. "Used 2x unprompted by Lorena" beats "feels useful."
+- **Metric:** measurable, not vibes. "Used 2x unprompted by ExamplePerson" beats "feels useful."
 - **Review date:** when do we revisit. Default = 30 days for tools, 60 days for protocols, 90 days for organs.
 - **Kill criteria:** what would make this earn its way off the system.
 

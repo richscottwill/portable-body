@@ -1,0 +1,47 @@
+{
+  "workflow": "wiki-maintenance",
+  "run_id": "2026-01-01T09:00:00Z-demo-run",
+  "runtime": "example-runtime",
+  "repo_root": "<repo-root>",
+  "status": "degraded",
+  "started_at": "2026-01-01T09:00:00Z",
+  "completed_at": "2026-01-01T09:04:30Z",
+  "phase_results": [
+    {
+      "phase": "Preflight and lock",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Broad sweep",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Researcher pass",
+      "status": "ok",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Writer pass",
+      "status": "skipped_optional",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    },
+    {
+      "phase": "Critic/eval pass",
+      "status": "skipped_optional",
+      "evidence": "<repo-root>/context/active/example-artifact.md"
+    }
+  ],
+  "capabilities": {
+    "missing_optional": [
+      "agent_dispatch",
+      "document_store"
+    ],
+    "missing_required": []
+  },
+  "outputs": [
+    "<repo-root>/context/intake/example-run-report.md"
+  ],
+  "next_action": "Review degraded sections and rerun on a runtime with the optional connectors if needed."
+}

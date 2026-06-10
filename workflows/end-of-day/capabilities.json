@@ -1,0 +1,24 @@
+{
+  "workflow": "end-of-day",
+  "requires": [
+    "filesystem_read",
+    "filesystem_write",
+    "task_system_read",
+    "local_analytics"
+  ],
+  "optional": [
+    "email_calendar",
+    "chat",
+    "document_store_publish",
+    "agent_dispatch"
+  ],
+  "degraded_mode": "produce local report and manual runbook when optional capabilities are unavailable",
+  "capability_tiers": [
+    "filesystem-only",
+    "shell-python",
+    "local-analytics",
+    "connector-access",
+    "agent-dispatch",
+    "full-orchestration"
+  ]
+}

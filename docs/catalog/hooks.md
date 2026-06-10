@@ -28,8 +28,8 @@ This catalog is generated from private hook metadata. It preserves the workflow 
 | .kiro/hooks/open-items-reminder.kiro.hook | · _ Open Items Reminder (promptSubmit) | promptSubmit | both | workflow trigger |
 | .kiro/hooks/organ-change-detector.kiro.hook | · _ Organ Change Detector (fileEdited) | fileEdited | both | workflow trigger |
 | .kiro/hooks/pre-mortem-nudge.kiro.hook | · _ Pre-Mortem Nudge (postToolUse) | postToolUse | both | morning orchestration |
-| .kiro/hooks/rw-kiro-dashboard-rebuild.kiro.hook | 11 · rw-kiro-dashboard Redeploy | userTriggered | server-only | morning orchestration |
-| .kiro/hooks/rw-kiro-dashboard-wiki-refresh.kiro.hook | · _ rw-kiro-dashboard Wiki Refresh (fileEdited) | fileEdited | server-only | knowledge base maintenance |
+| .kiro/hooks/public-demo-store-dashboard-rebuild.kiro.hook | 11 · public-demo-store-dashboard Redeploy | userTriggered | server-only | morning orchestration |
+| .kiro/hooks/public-demo-store-dashboard-wiki-refresh.kiro.hook | · _ public-demo-store-dashboard Wiki Refresh (fileEdited) | fileEdited | server-only | knowledge base maintenance |
 | .kiro/hooks/session-summary.kiro.hook | · _ Session Summary (agentStop) | agentStop | both | workflow trigger |
 | .kiro/hooks/sharepoint-sync.kiro.hook | 07 · SharePoint Sync | userTriggered | both | morning orchestration |
 | .kiro/hooks/state-file-constraints-sync.kiro.hook | · _ State File Constraints Sync (fileEdited) | fileEdited | server-only | weekly review / projection pipeline |

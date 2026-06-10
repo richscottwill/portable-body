@@ -1,0 +1,25 @@
+{
+  "workflow": "weekly-business-review",
+  "requires": [
+    "filesystem_read",
+    "filesystem_write",
+    "shell",
+    "python_3_10",
+    "local_analytics",
+    "spreadsheet_ingest"
+  ],
+  "optional": [
+    "agent_dispatch",
+    "document_store_publish",
+    "dashboard_publish"
+  ],
+  "degraded_mode": "produce local report and manual runbook when optional capabilities are unavailable",
+  "capability_tiers": [
+    "filesystem-only",
+    "shell-python",
+    "local-analytics",
+    "connector-access",
+    "agent-dispatch",
+    "full-orchestration"
+  ]
+}

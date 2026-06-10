@@ -1,0 +1,19 @@
+{
+  "workflow": "eval-routing",
+  "requires": [
+    "filesystem_read",
+    "filesystem_write"
+  ],
+  "optional": [
+    "agent_dispatch"
+  ],
+  "degraded_mode": "produce local report and manual runbook when optional capabilities are unavailable",
+  "capability_tiers": [
+    "filesystem-only",
+    "shell-python",
+    "local-analytics",
+    "connector-access",
+    "agent-dispatch",
+    "full-orchestration"
+  ]
+}
